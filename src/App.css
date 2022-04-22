@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding: 0;
+  border:0;
+  outline:0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+    --first-color: #405457;
+    --second-color:#02363D  ;
+    --third-color: #C05100 ;
+    --white-color: #fff;
+    --gray-light-color: #f3f3f3;
+    --gray-color: #ccc;
+    --black-color: #000;
+    --max-width: 1200px;
+    --transition: all 400ms ease;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+  margin: 0;
+  font-family: 'Sharp Sans' , sans-serif;
+  font-size: 40px;
+  color: #405457;
+  letter-spacing: 0;
+  line-height: 28px;
+
+  /* background: var(--title-color); */
+  /* color: var(--second-alpha-color); */
+  /* background-image: url(../src/assets/bg-texture.png); */
+  
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: 'Sharp Sans';
+  src: url('../public/fonts/SharpSansNo1-Bold.woff2') format('truetype');
+  font-style: normal;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: 'Sharp Sans';
+  src: url('../public/fonts/SharpSansNo1-BoldItalic.woff2') format('truetype');
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Sharp Sans';
+  src: url('../public/fonts/SharpSansNo1-Semibold.woff2') format('truetype');
+  font-style: normal;
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: 'Sharp Sans';
+  src: url('../public/fonts/SharpSansNo1Medium-Regular.woff2') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../public/fonts/proximanova-regular-webfont.woff2') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  
+}
+
+
+
+@media screen and (max-width: 600px) {
+  
 }
