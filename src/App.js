@@ -1,13 +1,13 @@
 import './App.css';
 import { Header } from './components/header/Header';
-import { LeftSection } from './components/leftSection/LeftSection';
+import { Principal } from './components/principal/Principal';
 
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <LeftSection/>
+      <Principal/>
     </div>
   );
 }
