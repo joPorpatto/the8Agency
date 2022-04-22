@@ -1,0 +1,38 @@
+.section___leftSection {
+  width: 60%;
+  margin: 3rem;
+  font-family: Proxima Nova;
+  letter-spacing: 0;
+  line-height: 28px;
+  font-size: 16px;
+}
+
+.section__cards{
+  margin: 2rem  0 2rem 0;
+}
+.section__card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 26px;
+  max-height: 110px;
+}
+
+.section__card img {
+  max-width: 74px;
+}
+
+.card__info {
+  font-family: sharp sans; 
+  padding: 2.5rem;
+  
+}
+
+.info__name{
+  font-size: 20px;
+}
+
+.info__position {
+   font-style: normal;
+  font-weight: 500;
+}
