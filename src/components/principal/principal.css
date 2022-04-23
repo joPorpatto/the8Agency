@@ -1,6 +1,33 @@
 
 aside{
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 50% 45%;
+  margin: 0 6rem 0 6rem;
+  gap: 5%;
 
+}
+
+
+@media screen and (max-width: 1024px) {
+
+aside{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;  
+
+}
+  
+}
+
+
+
+@media screen and (max-width: 600px) {
+  aside{
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 2rem 0 2rem;
+
+}
+  
+  
 }
