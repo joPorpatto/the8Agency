@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './form.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from "formik";
+import { IconContext } from "react-icons";
+
+
+
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { postForm } from '../../../services/publicService';
+
 
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 
 export const FormMain = () => {
+
+  // const [country, setCountry] = useState("");
 
   const SignupSchema = Yup.object().shape({
 
@@ -31,30 +41,20 @@ export const FormMain = () => {
               .required("Puesto requerido")
               .min(3, "Mínimo dos caracteres")
               .max(15, "Máximo quince caracteres "),
-        // password: Yup.string()
-        //     .required('Requerido')
-        //     .min(6, '6 caracteres como mínimo')
-        //     .matches(/^(?=.*[@$!%*#?&])/, '1 caracter especial requerido')
-        //     .matches(/(?=.*\d)/, 'al menos 1 numero requerido')
-        //     .matches(/(?=\w*[a-z])/, 'al menos 1 letra requerida'),
-
-        // password2: Yup.string()    
-        //     .required('Requerido')
-        //     .min(6, '6 caracteres como mínimo')
-        //     .matches(/^(?=.*[@$!%*#?&])/, '1 caracter especial requerido')
-        //     .matches(/(?=.*\d)/, 'al menos 1 numero requerido')
-        //     .matches(/(?=\w*[a-z])/, 'al menos 1 letra requerida')
-        //     .oneOf([Yup.ref('password'),null], 'Password must match')
-
-    })
+          
+          country: Yup.string()
+              .required("País requerido")
+      
+      })
   return (
 
     <Formik
             className='section__form'
-            initialValues={{nombre:"", apellido:'', email:'', numero:'', puesto:'' }}
+            initialValues={{nombre:"", apellido:'', email:'', numero:'', puesto:'',country:"Argentina"}}
             validationSchema={SignupSchema}            
             onSubmit= {(values,actions) =>{              
-              console.log(values)
+              // console.log(values)
+              postForm(values)
                
             }}
         
@@ -107,6 +107,22 @@ export const FormMain = () => {
                   <span></span>
                 </div>
                   {touched.email && errors.email && <p className="error">{errors.email}</p> }
+
+                  <p>País</p>
+                <div className='field countryDropDown'>
+                    <CountryDropdown
+                      name='country'
+                      value={values.country}
+                      onChange={(_,e) => {
+                        handleChange(e)
+                      }}
+                      onBlur={handleBlur} 
+                     />           
+
+                      <span></span>
+                </div>
+                  {touched.country && errors.country && <p className="error">{errors.country}</p> }      
+
                  
                   <p>Número de teléfono</p>
                 <div className='field'>
@@ -137,10 +153,13 @@ export const FormMain = () => {
                 </div>
                   {touched.puesto && errors.puesto && <p className="error">{errors.puesto}</p> }
 
-
+              
                   <p className="center-content">
-                    <button> Inscríbete
-                      
+                    <button type='submit'> 
+                        <span>Inscríbete</span>
+                        <IconContext.Provider value={{ size:30}}>
+                          <BsFillArrowRightCircleFill className='svg'/>
+                        </IconContext.Provider>                       
                     </button>
                   </p>
 

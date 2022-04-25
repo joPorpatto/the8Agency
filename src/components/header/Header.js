@@ -42,12 +42,11 @@ export const Header = () => {
       </div>
       {
           (show) &&
-                <IconContext.Provider value={{ size:40}}>
+                <IconContext.Provider value={{ size:45}}>
                       <div>
                         <a href='#' className='scroll__up'>
                           <IoIosArrowDropupCircle/>
-                        </a>
-                          
+                        </a>                          
                       </div>
                     </IconContext.Provider>
         }

@@ -63,51 +63,48 @@ form{
 }
 
 button {
-margin-top: 1rem;
-width: 100%;
- font-size: 18px;
- display: inline-block;
- text-align: center;
- font-weight: bold;
- padding: 0.7em 2em;
- /* border: 1px solid var(--first-color); */
- position: relative;
- box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
- color: var(--first-color);
- text-decoration: none;
- transition: 0.3s ease all;
- z-index: 1;
- background-color: var(--second-color);
- color: white;
- height: 50px;
+ width: 100%;
+ cursor: pointer;
+ font-weight: 700;
+ transition: all .2s;
+ padding: 10px 20px;
+ color: #fff;
+ background: var(--second-color);
+ border: 1px solid transparent;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 15px;
+ height: 50px
 }
 
-button:before {
- transition: 0.5s all ease;
- position: absolute;
- top: 0;
- left: 50%;
- right: 50%;
- bottom: 0;
- opacity: 0;
- content: '';
- background-color: var(--first-color);
- z-index: -1;
+
+
+button:hover {
+ background: #212926;
 }
 
-button:hover, button:focus {
- color: white;
+button > .svg {
+ width: 34px;
+ margin-left: 10px;
+ transition: transform .3s ease-in-out;
+ fill: #ffff;
+
+ 
 }
 
-button:hover:before, button:focus:before {
- transition: 0.5s all ease;
- left: 0;
- right: 0;
- opacity: 1;
+button:hover .svg {
+ transform: translateX(5px);
 }
 
 button:active {
- transform: scale(0.9);
+ transform: scale(0.95);
+}
+
+
+.countryDropDown > select {
+  background-color: #fff;
+  color: #68737D ;
 }
 
 @media screen and (max-width: 1024px) {
