@@ -12,6 +12,7 @@ import { Modal } from './modal/Modal'
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { postForm } from '../../../services/publicService';
+import { Spinner } from '../../spinner/Spinner';
 
 
 
@@ -21,7 +22,9 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 export const FormMain = () => {
   
   // const [country, setCountry] = useState("");
-  const [modalVisibility, setModalVisibility] = useState(false)
+  const [modalVisibility, setModalVisibility] = useState(true)
+const [loading, setLoading] = useState(false);
+const [status, setStatus] = useState(false);
   
   const SignupSchema = Yup.object().shape({
 
@@ -51,18 +54,22 @@ export const FormMain = () => {
       
       })
   return (
-
     <>
-
     <Formik
             className='section__form'
             initialValues={{name:"", surname:'', email:'',country:"", telephone:'', job:''}}
             validationSchema={SignupSchema}            
-            onSubmit= { async(values,actions) =>{      
-              const  resp =  await postForm(values)
+            onSubmit= { async(values,actions) =>{  
+              setLoading(true)    
+              const  resp =  await postForm(values)              
               if (resp.data) {
-                setModalVisibility(true)
+                setStatus(true)
+              }else{
+                setStatus(false)                
               }
+              setModalVisibility(true)
+              setLoading(false)
+    
             }}
         
         >
@@ -153,8 +160,7 @@ export const FormMain = () => {
                       autoComplete="off"
                       value={values.job}
                       onChange={handleChange}
-                      onBlur={handleBlur}      
-                           
+                      onBlur={handleBlur} 
                   />
                   <span></span>
                 </div>
@@ -169,39 +175,16 @@ export const FormMain = () => {
                         </IconContext.Provider>                       
                     </button>
                   </p>
-
+                  {(loading) && <Spinner/>} 
               </Form>
-
             </div>
-
-
-
-
-
-)}
-
-
-
-
+          )}
     </Formik>
-{(modalVisibility) && <Modal setModalVisibility={setModalVisibility}/>}
-
-
-</>
+    {(modalVisibility) && <Modal setModalVisibility={setModalVisibility} status={status}/>}
+  </> 
 )
-
 }
 
 
 
 
-//  <p>Correo electrónico del trabajo</p>
-//                   <input type="email" className="field"/> <br/>         
-
-//                   <p>Número de teléfono</p>
-//                   <input type="text" className="field"/> <br/>
-//                   <p>Puesto de trabajo</p>
-//                   <input type="text" className="field"/> <br/>
-
-{/* <p>País</p>
-          <select className='field'/>   <br/> */}

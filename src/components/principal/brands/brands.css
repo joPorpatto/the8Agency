@@ -14,17 +14,23 @@
 }
 
 
-@media screen and (max-width: 1024px) {  
+@media screen and (max-width: 1200px) {  
+  .brands__container {
+  display: grid;
+  grid-template-columns: repeat(3,2fr);
+  justify-items: center;
+  margin-bottom: 2rem;
+
+  
+}
 }
 
 
 
 @media screen and (max-width: 600px) { 
     .brands__container {
-  display: grid;
+
   grid-template-columns: repeat(2,2fr);
-  justify-items: center;
-  margin-bottom: 2rem;
 
   
 }

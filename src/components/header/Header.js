@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'; import './header.css';
 import { IoIosArrowDropupCircle } from "react-icons/io";
 import { IconContext } from "react-icons";
+import 'animate.css';
 
 export const Header = () => {
 
@@ -32,8 +33,8 @@ export const Header = () => {
   }, [lastScrollY]);
   return (
     <header id='#'>
-      <div className='header__container'>
-        <div className='header__webinar'>
+      <div className='header__container animate__animated animate__fadeInDown'>
+        <div className='header__webinar '>
           webinar
         </div>
         <p className='header__title1'>El reto de humanizar el CX financiero en 2021.   </p>   
