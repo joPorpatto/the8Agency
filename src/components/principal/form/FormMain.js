@@ -3,6 +3,9 @@ import './form.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from "formik";
 import { IconContext } from "react-icons";
+import { Modal } from './modal/Modal'
+
+
 
 
 
@@ -16,16 +19,17 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 
 export const FormMain = () => {
-
+  
   // const [country, setCountry] = useState("");
-
+  const [modalVisibility, setModalVisibility] = useState(false)
+  
   const SignupSchema = Yup.object().shape({
 
-        nombre: Yup.string()
+        name: Yup.string()
             .required("Nombre requerido")
             .min(2, "Mínimo dos caracteres"),
 
-        apellido: Yup.string()
+        surname: Yup.string()
               .required("Apellido requerido")
               .min(2, "Mínimo dos caracteres"),
 
@@ -33,11 +37,11 @@ export const FormMain = () => {
             .email('email Invalido')
             .required('Requerido'),
 
-          numero: Yup.string()
+          telephone: Yup.string()
             .required('número requerido') 
             .matches(phoneRegExp,'Ingrese un número válido'),
 
-          puesto: Yup.string()
+          job: Yup.string()
               .required("Puesto requerido")
               .min(3, "Mínimo dos caracteres")
               .max(15, "Máximo quince caracteres "),
@@ -48,14 +52,17 @@ export const FormMain = () => {
       })
   return (
 
+    <>
+
     <Formik
             className='section__form'
-            initialValues={{nombre:"", apellido:'', email:'', numero:'', puesto:'',country:"Argentina"}}
+            initialValues={{name:"", surname:'', email:'',country:"", telephone:'', job:''}}
             validationSchema={SignupSchema}            
-            onSubmit= {(values,actions) =>{              
-              // console.log(values)
-              postForm(values)
-               
+            onSubmit= { async(values,actions) =>{      
+              const  resp =  await postForm(values)
+              if (resp.data) {
+                setModalVisibility(true)
+              }
             }}
         
         >
@@ -70,29 +77,29 @@ export const FormMain = () => {
                 <div className='field'>
                   <Field
                       type="text" 
-                      name="nombre"
+                      name="name"
                       autoComplete="off"
-                      value={values.nombre}
+                      value={values.name}
                       onChange={handleChange}
                       onBlur={handleBlur}                 
                   />
                   <span></span>
                 </div>
-                  {touched.nombre && errors.nombre && <p className="error">{errors.nombre}</p> }
+                  {touched.name && errors.name && <p className="error">{errors.name}</p> }
 
-                  <p>Apellido</p>
+                  <p>Surname</p>
                 <div className='field'>
                   <Field
                       type="text" 
-                      name="apellido"
+                      name="surname"
                       autoComplete="off"
-                      value={values.apellido}
+                      value={values.surname}
                       onChange={handleChange}
                       onBlur={handleBlur}                 
                   />
                   <span></span>
                 </div>
-                  {touched.apellido && errors.apellido && <p className="error">{errors.apellido}</p> }
+                  {touched.surname && errors.surname && <p className="error">{errors.surname}</p> }
 
                   <p>Correo electrónico de trabajo</p>
                 <div className='field'>
@@ -128,30 +135,30 @@ export const FormMain = () => {
                 <div className='field'>
                   <Field
                       type="number" 
-                      name="numero"
+                      name="telephone"
                       autoComplete="off"
-                      value={values.numero}
+                      value={values.telephone}
                       onChange={handleChange}
                       onBlur={handleBlur}                 
                   />
                   <span></span>
                 </div>
-                  {touched.numero && errors.numero && <p className="error">{errors.numero}</p> }
+                  {touched.telephone && errors.telephone && <p className="error">{errors.telephone}</p> }
 
                    <p>Puesto de trabajo</p>
                 <div className='field'>
                   <Field
                       type="text" 
-                      name="puesto"
+                      name="job"
                       autoComplete="off"
-                      value={values.puesto}
+                      value={values.job}
                       onChange={handleChange}
                       onBlur={handleBlur}      
                            
                   />
                   <span></span>
                 </div>
-                  {touched.puesto && errors.puesto && <p className="error">{errors.puesto}</p> }
+                  {touched.job && errors.job && <p className="error">{errors.job}</p> }
 
               
                   <p className="center-content">
@@ -167,19 +174,21 @@ export const FormMain = () => {
 
             </div>
 
-            
 
 
 
-          )}
+
+)}
+
 
 
 
     </Formik>
+{(modalVisibility) && <Modal setModalVisibility={setModalVisibility}/>}
 
 
-   
-  )
+</>
+)
 
 }
 
