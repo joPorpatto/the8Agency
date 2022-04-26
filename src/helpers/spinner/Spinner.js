@@ -3,7 +3,7 @@ import './style.css';
 
 export const Spinner = () => {
   return (
-    <div className='spinner__container'>
+    <div data-testid="loading" className='spinner__container'>
 
     <div className='spinner'>
       <span></span>

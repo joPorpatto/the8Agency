@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = process.env.REACT_APP_API_URL;
 
-export const postForm = async ({ name, surname, email, telephone, job, country }) => {
+export const postForm = async ({ name, surname, email, telephone = '911', job, country }) => {
   const phone = telephone.toString();
   try {
     const resp = await axios.post(`${API}`,

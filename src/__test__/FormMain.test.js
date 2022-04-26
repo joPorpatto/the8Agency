@@ -16,7 +16,7 @@ import user from '@testing-library/user-event';
 import { FormMain } from '../components/principal/form/FormMain';
 
 describe('FormMain', () => {
-  it('se esperan lso datos en el doc', () => {
+  it('should show the data', () => {
     render(<FormMain/>);
     expect(getName()).toBeInTheDocument();
     expect(getSurname()).toBeInTheDocument();
@@ -44,17 +44,17 @@ describe('FormMain', () => {
     const onSubmit = jest.fn();
     render(<FormMain onSubmit={onSubmit} />);
   
-    user.type(getName(), 'joel');
-    user.type(getSurname(), 'porpatto');
-    user.type(getEmail(), 'joel.porpatto@gmail.com');
+    user.type(getName(), 'john');
+    user.type(getSurname(), 'Stone');
+    user.type(getEmail(), 'john.Stone@gmail.com');
     fireEvent.click(screen.getByRole('option', { name: /argentina/i }));
     user.type(getJob(), 'dev');
     user.type(getPhone(), '+5492612535952');
     
     await waitFor(() => {
-      fireEvent.change(getName(), { target: { value: 'joel' } });
-      fireEvent.change(getName(), { target: { value: 'porpatto' } });
-      fireEvent.change(getEmail(), { target: { value: 'joel.porpatto@gmail.com' } });    
+      fireEvent.change(getName(), { target: { value: 'john' } });
+      fireEvent.change(getName(), { target: { value: 'Stone' } });
+      fireEvent.change(getEmail(), { target: { value: 'john.Stone@gmail.com' } });    
       fireEvent.change(screen.getByRole('option', { name: /argentina/i }), { target: { value: 'argentina' } });
       fireEvent.change(getJob(), { target: { value: 'dev' } });
       fireEvent.change(getPhone(), { target: { value: '5492612535952' } });
