@@ -1,5 +1,5 @@
-import React from 'react'
-import './style.css'
+import React from 'react';
+import './style.css';
 
 export const Spinner = () => {
   return (
@@ -10,7 +10,6 @@ export const Spinner = () => {
       <span></span>
       <span></span>
     </div>
-    
     </div>
-  )
-}
+  );
+};

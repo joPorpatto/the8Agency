@@ -1,24 +1,22 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'; import './header.css';
-import { IoIosArrowDropupCircle } from "react-icons/io";
-import { IconContext } from "react-icons";
+import { IoIosArrowDropupCircle } from 'react-icons/io';
+import { IconContext } from 'react-icons';
 import { ArrowBack } from '../../helpers/ArrowBack';
 import 'animate.css';
 
 export const Header = () => {
-
   const [show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const controlNavbar = () => {
-    if (typeof window !== 'undefined') { 
+    if (typeof window !== 'undefined') {
       if (window.scrollY > 400) { // if scroll down hide the navbar
-        setShow(true); 
+        setShow(true);
       } else { // if scroll up show the navbar
-        setShow(false);  
+        setShow(false);
       }
       // remember current page location to use in the next move
-      setLastScrollY(window.scrollY); 
+      setLastScrollY(window.scrollY);
     }
   };
 
@@ -37,21 +35,21 @@ export const Header = () => {
         <div className='header__webinar '>
           webinar
         </div>
-        <p className='header__title1'>El reto de humanizar el CX financiero en 2021.</p>   
+        <p className='header__title1'>El reto de humanizar el CX financiero en 2021.</p>
         <p className='header__title2'>La experiencia de un Unicornio de Latam</p>
         <p className='header__title3'>Miércoles 16 de diciembre | 17 hs (Horario de Quito)</p>
       </div>
       {
         (show) &&
-            <IconContext.Provider value={{ size:45}}>
+            <IconContext.Provider value={{ size: 45 }}>
                   <div>
                     <a href='#' className='scroll__up'>
                       <IoIosArrowDropupCircle/>
-                    </a>                          
+                    </a>
                   </div>
                 </IconContext.Provider>
         }
-                        <ArrowBack/>                        
+                        <ArrowBack/>
     </header>
-  )
-}
+  );
+};

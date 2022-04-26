@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 import {
-        BrowserRouter as Router,
-        Routes,
-        Route,
-    
-  } from 'react-router-dom';
+  BrowserRouter as Router,
+  Routes,
+  Route
+
+} from 'react-router-dom';
 import { Dates } from './back/Dates';
 import { Home } from './components/Home';
 import { Start } from './start/Start';
 
-function App() {
+function App () {
   return (
 
-    <Router> 
+    <Router>
         <Routes >
           <Route path='/*' element={<Start/>}/>
           <Route path='/home' element={<Home/>}/>
