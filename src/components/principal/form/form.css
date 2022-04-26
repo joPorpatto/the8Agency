@@ -63,39 +63,45 @@ form{
 }
 
 button {
- width: 100%;
+  width: 100%;
  cursor: pointer;
+ background: linear-gradient(-45deg, var(--second-color), var(--third-color),var(--first-color));
+ background-size: 800% 400%;
+ padding: 1em 2em;
+ display: inline-block;
+ border: none;
+ font-size: 17px;
  font-weight: 700;
- transition: all .2s;
- padding: 10px 20px;
- color: #fff;
- background: var(--second-color);
- border: 1px solid transparent;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 15px;
- margin-top: 2rem;
+ color: white;
+ transition: all .5s ease-in-out;
+ animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
 }
 
 button:hover {
- background: #212926;
-}
-
-button > .svg {
- width: 34px;
- margin-left: 10px;
- transition: transform .3s ease-in-out;
- fill: #ffff; 
-}
-
-button:hover .svg {
- transform: translateX(5px);
+ animation: gradient 3s infinite;
+ transform: scale(1.01);
 }
 
 button:active {
- transform: scale(0.95);
+ animation: gradient 3s infinite;
+ transform: scale(0.8);
 }
+
+@keyframes gradient {
+ 0% {
+  background-position: 0% 50%;
+ }
+
+ 50% {
+  background-position: 100% 50%;
+ }
+
+ 100% {
+  background-position: 0% 50%;
+ }
+}
+
+
 
 
 .countryDropDown > select {

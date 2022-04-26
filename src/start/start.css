@@ -1,0 +1,29 @@
+.container__start{
+  background-color: var(--first-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.container__start > a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+.container__start > a:hover {
+  color: rgb(167, 167, 167);
+
+}
+
+@media screen and (max-width: 600px) {
+  .container__start {
+    flex-direction: column;
+  }
+
+}

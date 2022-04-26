@@ -27,7 +27,7 @@ export const Footer = () => {
               socialsList.map(social => {
                 return(
                   <div key={social.id}>                    
-                    <a href={social.link} target="_blank">
+                    <a href={social.link} target="_blank" rel="noopener noreferrer">
                       <img src={social.name} alt="MDN"/>
                     </a>
                   </div>

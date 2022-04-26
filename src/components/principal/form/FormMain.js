@@ -5,54 +5,41 @@ import { Formik, Form, Field } from "formik";
 import { IconContext } from "react-icons";
 import { Modal } from './modal/Modal'
 
-
-
-
-
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
+import { CountryDropdown } from 'react-country-region-selector';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { postForm } from '../../../services/publicService';
 import { Spinner } from '../../spinner/Spinner';
-
-
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 
 export const FormMain = () => {
   
-  // const [country, setCountry] = useState("");
-  const [modalVisibility, setModalVisibility] = useState(true)
-const [loading, setLoading] = useState(false);
-const [status, setStatus] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(false);
   
   const SignupSchema = Yup.object().shape({
-
         name: Yup.string()
             .required("Nombre requerido")
             .min(2, "Mínimo dos caracteres"),
-
         surname: Yup.string()
               .required("Apellido requerido")
               .min(2, "Mínimo dos caracteres"),
-
         email: Yup.string()
             .email('email Invalido')
             .required('Requerido'),
-
           telephone: Yup.string()
             .required('número requerido') 
             .matches(phoneRegExp,'Ingrese un número válido'),
-
           job: Yup.string()
               .required("Puesto requerido")
               .min(3, "Mínimo dos caracteres")
-              .max(15, "Máximo quince caracteres "),
-          
+              .max(15, "Máximo quince caracteres "),          
           country: Yup.string()
-              .required("País requerido")
-      
+              .required("País requerido")      
       })
+      
   return (
     <>
     <Formik
@@ -170,9 +157,9 @@ const [status, setStatus] = useState(false);
                   <p className="center-content">
                     <button type='submit'> 
                         <span>Inscríbete</span>
-                        <IconContext.Provider value={{ size:30}}>
+                        {/* <IconContext.Provider value={{ size:30}}>
                           <BsFillArrowRightCircleFill className='svg'/>
-                        </IconContext.Provider>                       
+                        </IconContext.Provider>                        */}
                     </button>
                   </p>
                   {(loading) && <Spinner/>} 
