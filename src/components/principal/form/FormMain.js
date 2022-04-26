@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import './form.css';
+import 'animate.css';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from "formik";
-import { IconContext } from "react-icons";
 import { Modal } from './modal/Modal'
-
 import { CountryDropdown } from 'react-country-region-selector';
-import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { postForm } from '../../../services/publicService';
-import { Spinner } from '../../spinner/Spinner';
+import { Spinner } from '../../../helpers/spinner/Spinner';
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
@@ -21,23 +19,23 @@ export const FormMain = () => {
   
   const SignupSchema = Yup.object().shape({
         name: Yup.string()
-            .required("Nombre requerido")
+            .required("Por favor ingrese un nombre")
             .min(2, "Mínimo dos caracteres"),
         surname: Yup.string()
-              .required("Apellido requerido")
+              .required("Por favor ingrese un apellido")
               .min(2, "Mínimo dos caracteres"),
         email: Yup.string()
             .email('email Invalido')
-            .required('Requerido'),
+            .required('Por favor ingrese un email'),
           telephone: Yup.string()
-            .required('número requerido') 
+            .required('Por favor ingrese un número') 
             .matches(phoneRegExp,'Ingrese un número válido'),
           job: Yup.string()
-              .required("Puesto requerido")
+              .required("Por favor ingrese un puesto de trabajo")
               .min(3, "Mínimo dos caracteres")
               .max(15, "Máximo quince caracteres "),          
           country: Yup.string()
-              .required("País requerido")      
+              .required("Por favor seleccione un país")      
       })
       
   return (
@@ -63,11 +61,11 @@ export const FormMain = () => {
           {( {values,errors,touched,handleSubmit,handleChange,handleBlur}) =>(
 
              <div className='form'>
-              <label className='form_title'>¡Inscríbete y reserva tu lugar ahora!</label>
+              <label className='form_title header__container animate__animated animate__flip animate__delay-2s'>¡Inscríbete y reserva tu lugar ahora!</label>
 
               <Form onSubmit={handleSubmit}>
                  <div>
-                  <label for="name">Nombre</label>
+                  <label htmlFor="name">Nombre</label>
                 
                 <div className='field'>
                   <Field
@@ -85,7 +83,7 @@ export const FormMain = () => {
                 </div>
 
                 <div>
-                  <label for="surname">Apellido</label>
+                  <label htmlFor="surname">Apellido</label>
                   <div className='field'>
                     <Field
                         type="text" 
@@ -104,7 +102,7 @@ export const FormMain = () => {
 
 
                  <div>
-                  <label for="email">Correo electrónico de trabajo</label>
+                  <label htmlFor="email">Correo electrónico de trabajo</label>
                 <div className='field'>
                   <Field
                       type="email" 
@@ -121,7 +119,7 @@ export const FormMain = () => {
                 </div>
 
                  <div>
-                  <label for="country">País</label>
+                  <label htmlFor="country">País</label>
                 <div className='field countryDropDown'>
                     <CountryDropdown
                       name='country'
@@ -139,7 +137,7 @@ export const FormMain = () => {
                 </div>
 
                  <div>
-                  <label for="telephone">Número de teléfono</label>
+                  <label htmlFor="telephone">Número de teléfono</label>
                 <div className='field'>
                   <Field
                       type="number" 
@@ -155,7 +153,7 @@ export const FormMain = () => {
                   {touched.telephone && errors.telephone && <p className="error">{errors.telephone}</p> }
                 </div>
                 <div>
-                  <label for="job">Puesto de trabajo</label>
+                  <label htmlFor="job">Puesto de trabajo</label>
                 <div className='field'>
                   <Field
                       type="text" 

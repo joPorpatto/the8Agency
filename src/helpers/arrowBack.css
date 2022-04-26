@@ -1,0 +1,12 @@
+.arrow_back{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  opacity: 20%;
+  
+}
+
+.arrow_back:hover{
+  opacity: 80%;  
+}

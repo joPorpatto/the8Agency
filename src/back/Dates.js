@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { ArrowBack } from '../helpers/ArrowBack';
 import {getForm} from '../services/publicService'
 import './dates.css';
 
@@ -16,6 +17,7 @@ export const Dates = () => {
 
   return (
     <div className=' container__dates'>
+      <ArrowBack/>
       <b>Registro de usuarios inscriptos por fomulario:<br/><br/></b>
       {usuarios.length > 0?
       usuarios.map((user,i) => {

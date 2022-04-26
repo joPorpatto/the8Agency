@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'; import './header.css';
 import { IoIosArrowDropupCircle } from "react-icons/io";
-import { BsArrowLeftCircle } from "react-icons/bs";
 import { IconContext } from "react-icons";
-
+import { ArrowBack } from '../../helpers/ArrowBack';
 import 'animate.css';
-import { Link } from 'react-router-dom';
 
 export const Header = () => {
 
@@ -27,7 +25,6 @@ export const Header = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', controlNavbar);
-
       // cleanup function
       return () => {
         window.removeEventListener('scroll', controlNavbar);
@@ -40,27 +37,21 @@ export const Header = () => {
         <div className='header__webinar '>
           webinar
         </div>
-        <p className='header__title1'>El reto de humanizar el CX financiero en 2021.   </p>   
-        <p className='header__title2'>La experiencia de un Unicornio de Latam</p>       
-        <p className='header__title3'>Miércoles 16 de diciembre | 17 hs (Horario de Quito)</p>      
+        <p className='header__title1'>El reto de humanizar el CX financiero en 2021.</p>   
+        <p className='header__title2'>La experiencia de un Unicornio de Latam</p>
+        <p className='header__title3'>Miércoles 16 de diciembre | 17 hs (Horario de Quito)</p>
       </div>
       {
-          (show) &&
-                <IconContext.Provider value={{ size:45}}>
-                      <div>
-                        <a href='#' className='scroll__up'>
-                          <IoIosArrowDropupCircle/>
-                        </a>                          
-                      </div>
-                    </IconContext.Provider>
+        (show) &&
+            <IconContext.Provider value={{ size:45}}>
+                  <div>
+                    <a href='#' className='scroll__up'>
+                      <IoIosArrowDropupCircle/>
+                    </a>                          
+                  </div>
+                </IconContext.Provider>
         }
-                        <IconContext.Provider value={{ size:40, color: "#ffff"}}>
-                          <div className='arrow_back'>
-                            <Link to='/'><BsArrowLeftCircle/></Link>
-                          </div>
-                        </IconContext.Provider>
-
-                        
+                        <ArrowBack/>                        
     </header>
   )
 }
