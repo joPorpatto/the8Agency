@@ -7,6 +7,7 @@ export const Dates = () => {
   useEffect(() => { 
     const fetchData = async() =>{
       const request = await getForm();
+      console.log(request)
       setUsuarios(request.data.usuarios); 
       return request
     };

@@ -66,11 +66,13 @@ export const FormMain = () => {
               <label className='form_title'>¡Inscríbete y reserva tu lugar ahora!</label>
 
               <Form onSubmit={handleSubmit}>
-
-                <p>Nombre</p>
+                 <div>
+                  <label for="name">Nombre</label>
+                
                 <div className='field'>
                   <Field
                       type="text" 
+                      id="name"
                       name="name"
                       autoComplete="off"
                       value={values.name}
@@ -80,25 +82,33 @@ export const FormMain = () => {
                   <span></span>
                 </div>
                   {touched.name && errors.name && <p className="error">{errors.name}</p> }
-
-                  <p>Surname</p>
-                <div className='field'>
-                  <Field
-                      type="text" 
-                      name="surname"
-                      autoComplete="off"
-                      value={values.surname}
-                      onChange={handleChange}
-                      onBlur={handleBlur}                 
-                  />
-                  <span></span>
                 </div>
-                  {touched.surname && errors.surname && <p className="error">{errors.surname}</p> }
 
-                  <p>Correo electrónico de trabajo</p>
+                <div>
+                  <label for="surname">Apellido</label>
+                  <div className='field'>
+                    <Field
+                        type="text" 
+                        id="surname"
+                        name="surname"
+                        autoComplete="off"
+                        value={values.surname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}                 
+                    />
+                    <span></span>
+                  </div>
+                    {touched.surname && errors.surname && <p className="error">{errors.surname}</p> }
+                
+                </div>  
+
+
+                 <div>
+                  <label for="email">Correo electrónico de trabajo</label>
                 <div className='field'>
                   <Field
                       type="email" 
+                      id="email"
                       name="email"
                       autoComplete="off"
                       value={values.email}
@@ -108,11 +118,14 @@ export const FormMain = () => {
                   <span></span>
                 </div>
                   {touched.email && errors.email && <p className="error">{errors.email}</p> }
+                </div>
 
-                  <p>País</p>
+                 <div>
+                  <label for="country">País</label>
                 <div className='field countryDropDown'>
                     <CountryDropdown
                       name='country'
+                      id="country"
                       value={values.country}
                       onChange={(_,e) => {
                         handleChange(e)
@@ -123,12 +136,14 @@ export const FormMain = () => {
                       <span></span>
                 </div>
                   {touched.country && errors.country && <p className="error">{errors.country}</p> }      
+                </div>
 
-                 
-                  <p>Número de teléfono</p>
+                 <div>
+                  <label for="telephone">Número de teléfono</label>
                 <div className='field'>
                   <Field
                       type="number" 
+                      id="telephone"
                       name="telephone"
                       autoComplete="off"
                       value={values.telephone}
@@ -138,11 +153,13 @@ export const FormMain = () => {
                   <span></span>
                 </div>
                   {touched.telephone && errors.telephone && <p className="error">{errors.telephone}</p> }
-
-                   <p>Puesto de trabajo</p>
+                </div>
+                <div>
+                  <label for="job">Puesto de trabajo</label>
                 <div className='field'>
                   <Field
                       type="text" 
+                      id="job"
                       name="job"
                       autoComplete="off"
                       value={values.job}
@@ -152,14 +169,11 @@ export const FormMain = () => {
                   <span></span>
                 </div>
                   {touched.job && errors.job && <p className="error">{errors.job}</p> }
-
+                </div>
               
                   <p className="center-content">
                     <button type='submit'> 
-                        <span>Inscríbete</span>
-                        {/* <IconContext.Provider value={{ size:30}}>
-                          <BsFillArrowRightCircleFill className='svg'/>
-                        </IconContext.Provider>                        */}
+                        <span>Inscríbete</span>                       
                     </button>
                   </p>
                   {(loading) && <Spinner/>} 
