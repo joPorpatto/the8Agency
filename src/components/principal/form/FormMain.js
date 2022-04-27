@@ -42,7 +42,7 @@ export const FormMain = () => {
             className='section__form'
             initialValues={{ name: '', surname: '', email: '', country: '', telephone: '', job: '' }}
             validationSchema={SignupSchema}
-            onSubmit= { async (values, actions) => {
+            onSubmit= { async (values, action) => {
               setLoading(true);
               const resp = await postForm(values);
               if (resp.data) {
@@ -52,6 +52,7 @@ export const FormMain = () => {
               }
               setModalVisibility(true);
               setLoading(false);
+              action.resetForm();
             }}
 
         >
@@ -62,7 +63,7 @@ export const FormMain = () => {
 
               <Form onSubmit={handleSubmit}>
                  <div>
-                  <label htmlFor="name">Nombre</label>
+                  <label className='lable__title' htmlFor="name">Nombre</label>
 
                 <div className='field'>
                   <Field
@@ -80,7 +81,7 @@ export const FormMain = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="surname">Apellido</label>
+                  <label className='lable__title' htmlFor="surname">Apellido</label>
                   <div className='field'>
                     <Field
                         type="text"
@@ -98,7 +99,7 @@ export const FormMain = () => {
                 </div>
 
                  <div>
-                  <label htmlFor="email">Correo electrónico de trabajo</label>
+                  <label className='lable__title' htmlFor="email">Correo electrónico de trabajo</label>
                 <div className='field'>
                   <Field
                       type="email"
@@ -115,7 +116,7 @@ export const FormMain = () => {
                 </div>
 
                  <div>
-                  <label htmlFor="country">País</label>
+                  <label className='lable__title' htmlFor="country">País</label>
                 <div className='field countryDropDown'>
                     <CountryDropdown
                       name='country'
@@ -133,7 +134,7 @@ export const FormMain = () => {
                 </div>
 
                  <div>
-                  <label htmlFor="telephone">Número de teléfono</label>
+                  <label className='lable__title' htmlFor="telephone">Número de teléfono</label>
                 <div className='field'>
                   <Field
                       type="number"
@@ -149,7 +150,7 @@ export const FormMain = () => {
                   {touched.telephone && errors.telephone && <p className="error">{errors.telephone}</p> }
                 </div>
                 <div>
-                  <label htmlFor="job">Puesto de trabajo</label>
+                  <label className='lable__title' htmlFor="job">Puesto de trabajo</label>
                 <div className='field'>
                   <Field
                       type="text"

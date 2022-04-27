@@ -1,25 +1,29 @@
 
 .form{
   margin-top: 4rem;
-  font-size: 14px;  
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }  
 
 .form  label {
-  font-size: 14px;
   margin-bottom: 5px;
 }
 label {
   margin-top: 2rem;
-  font-size: 20px;
   line-height: 29px;
   align-items: center;
 
 }
+
 .form_title{
   text-align: center;
+  font-size: 20px;
+    
+}
+
+.lable__title{
+  font-size: 14px;
 }
 
 form{
@@ -28,16 +32,12 @@ form{
   background-color: white;
   border-radius: 3px;
   color: var(--second-color);
-  font-size: 0.8em;
-  /* padding: 20px; */
-  /* margin: 0 auto; */
-  
+  font-size: 0.8em;  
 }
 
 		input, select{
 			border: 0;
 			outline: none;
-      /* height: 20px; */
 			width: 100%;
       height: 50px;
 		}
@@ -46,6 +46,7 @@ form{
 			border: solid 1px #68737D;
 			padding-left: 10px; 
       margin-bottom: 15px;
+      
 
 			
 		}
@@ -60,6 +61,7 @@ form{
 .error{
         color: #e74e4e;
         margin-top: -15px;
+        font-size: 12px;
 
 }
 
@@ -105,7 +107,6 @@ button:active {
 
 
 
-
 .countryDropDown > select {
   background-color: #fff;
   color: #68737D ;
@@ -126,6 +127,6 @@ button:active {
     font-size: 1.5rem;
     line-height: 29px;
     align-items: center;
-}
+  }
   
 }
