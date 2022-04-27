@@ -32,6 +32,5 @@
 ### Pantalla en donde se muestra la base de datos de MongoDB
 ![ScreenShot](/public/img/back.png)
 
-### Componente Formulario con campos requeridos
-![ScreenShot](/public/img/form.png)
+
 

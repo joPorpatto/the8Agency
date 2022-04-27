@@ -33,9 +33,9 @@ describe('FormMain', () => {
         await waitFor(() => {
           expect(screen.getByText(/por favor ingrese un nombre/i));
           expect(screen.getByText(/por favor ingrese un apellido/i));
-          expect(screen.getByText(/por favor ingrese un email/i));
+          expect(screen.getByText(/por favor ingrese un correo/i));
           expect(screen.getByText(/por favor seleccione un país/i));
-          expect(screen.getByText(/por favor ingrese un número/i));
+          expect(screen.getByText(/por favor ingrese un número de teléfono/i));
           expect(screen.getByText(/por favor ingrese un puesto de trabajo/i));    
         });
   });

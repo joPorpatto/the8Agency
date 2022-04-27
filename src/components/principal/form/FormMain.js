@@ -23,10 +23,10 @@ export const FormMain = () => {
       .required('Por favor ingrese un apellido')
       .min(2, 'Mínimo dos caracteres'),
     email: Yup.string()
-      .email('email Invalido')
-      .required('Por favor ingrese un email'),
+      .email('Correo Invalido')
+      .required('Por favor ingrese un correo'),
     telephone: Yup.string()
-      .required('Por favor ingrese un número')
+      .required('Por favor ingrese un número de teléfono')
       .matches(phoneRegExp, 'Ingrese un número válido'),
     job: Yup.string()
       .required('Por favor ingrese un puesto de trabajo')
